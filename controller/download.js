@@ -6,6 +6,7 @@ const download = (req,res)=>{
     Report.find((err,data)=>{
         if(err){
             console.log(err);
+            res.json({error:"No file found"});
         }
         else{
             var temp = JSON.stringify(data);

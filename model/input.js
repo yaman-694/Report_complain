@@ -23,13 +23,13 @@ const userSchema = new mongoose.Schema({
     complain_accept_no:{
         type: String,
     },
-    complain_accept_date: {
+    complain_accept_String: {
         type: String,
     },
     complain_panjikaran_no: {
         type: String,
     },
-    complain_panjikaran_date:
+    complain_panjikaran_String:
     {
         type: String,
     },
@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
     prativedan_no: {
         type: String,
     },
-    partivedan_date: {
+    partivedan_String: {
         type: String,
     },
     partivedan_result:

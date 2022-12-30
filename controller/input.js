@@ -2,11 +2,13 @@ const Report = require("../model/input");
 
 const input = (req, res) => {
   const input = req.body;
-  console.log(input.ana_name_and_addres);
+  console.log(input.ana_nam);
 
   const report = new Report({ 
-    ave_name_and_address: input.ave_name_and_addres,
-    ana_name_and_address: input.ana_name_and_addres,
+    ave_name: input.ave_nam,
+    ave_adderess: input.ave_adderes,
+    ana_name: input.ana_nam,
+    ana_address: input.ana_addres,
     complain_in_summary: input.complain_in_summar,
     where: input.wher,
     complain_accept_no: input.complain_accept_n,
@@ -23,6 +25,7 @@ const input = (req, res) => {
   report.save()
   .then((user) => {
     console.log("se", user);
+    res.json({error:"No data"});
   });
   res.json({ input });
 };
@@ -31,6 +34,7 @@ const get_all = (req,res)=>{
     Report.find((err,data)=>{
         if(err){
             console.log(err);
+            res.json({error:"No data found"});
         }
         else{
             res.json(data);
