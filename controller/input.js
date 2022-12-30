@@ -25,8 +25,12 @@ const input = (req, res) => {
   report.save()
   .then((user) => {
     console.log("se", user);
+    // res.json({error:"No data"});
+  })
+  .catch((err) => {
+    console.log("err", err);
     res.json({error:"No data"});
-  });
+    });
   res.json({ input });
 };
 

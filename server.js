@@ -24,7 +24,7 @@ app.set("view engine", "ejs");
 
 //set public folder static
 app.use(express.static('public'));
-app.use(cors);
+app.use(cors());
 
 //set middleware
 app.use(bodyParser.urlencoded({ extended: true }));
