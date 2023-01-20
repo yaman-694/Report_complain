@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const search = require('../controller/search')
+const search = require("../controller/search");
 
-router.get('/search',search);
+router.get("/search", search);
 module.exports = router;
