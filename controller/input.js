@@ -24,44 +24,46 @@ const input = (req, res) => {
     dpodate: input.dpodate,
     dpoNumber: input.dponumber,
   });
-  report.save()
-  .then((user) => {
-    // console.log("se", user);
-    // res.json({error:"No data"});
-    res.json({ input });
-  })
-  .catch((err) => {
-    res.json({error:"Input data is not valid",errors:err.errors});
+  report
+    .save()
+    .then((user) => {
+      // console.log("se", user);
+      // res.json({error:"No data"});
+      res.json({ input });
+    })
+    .catch((err) => {
+      res.json({ error: "Input data is not valid", errors: err.errors });
     });
 };
 
-const get_all = (req,res)=>{
-    Report.find((err,data)=>{
-        if(err){
-            console.log(err);
-            res.json({error:"No data found"});
-        }
-        else{
-            res.json(data);
-        }
-    });
-}
+const get_all = (req, res) => {
+  Report.find((err, data) => {
+    if (err) {
+      console.log(err);
+      res.json({ error: "No data found" });
+    } else {
+      res.json(data);
+    }
+  });
+};
 
-const delete_complain = (req,res)=>{
-    const complain_accept_no = req.params.complain_accept_no;
-    Report.findOneAndDelete({complain_accept_no:complain_accept_no},(err,data)=>{
-        if(err){
-            console.log(err);
-            res.json({error:"No data found"});
-        }
-        else{
-            res.json(data);
-        }
-    });
-}
+const delete_complain = (req, res) => {
+  const complain_accept_no = req.params.complain_accept_no;
+  Report.findOneAndDelete(
+    { complain_accept_no: complain_accept_no },
+    (err, data) => {
+      if (err) {
+        console.log(err);
+        res.json({ error: "No data found" });
+      } else {
+        res.json(data);
+      }
+    }
+  );
+};
 
 module.exports = {
   input,
   get_all,
-  delete_complain
+  delete_complain,
 };
